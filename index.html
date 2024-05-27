@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./styles.css" />
+        <script src="./progressbar.min.js"></script>
         <script src="./app.js"></script>
         <title>Pomodoro Timer Project</title>
     </head>
@@ -15,9 +16,7 @@
         <div class="container">
             <div id="clock">
                 <span id="remaining"></span>
-                <div class="progress">
-                    <progress id="bar" value="100" min="0" max="100" style="visibility: hidden; height: 0; width: 0">0%</progress>
-                </div>
+                <div class="progress"></div>
                 <button id="start">START</button>
             </div>
         </div>

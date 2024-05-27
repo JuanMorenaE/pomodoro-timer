@@ -1,3 +1,7 @@
+:root {
+    --progress-bar-rotation: 0;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -81,7 +85,8 @@ header {
     width: 95%;
     height: 95%;
     border-radius: 50%;
-    background: radial-gradient(closest-side, #e3e7ef 98%, transparent 98% 100%), conic-gradient(#6eddff 20%, transparent 0);
+    background: radial-gradient(closest-side, #e3e7ef 98%, transparent 98% 100%), conic-gradient(#6eddff 0%, transparent 0);
+    transition: background-color 1000ms linear;
 }
 
 .container #start {

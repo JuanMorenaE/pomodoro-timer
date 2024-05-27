@@ -1,38 +1,72 @@
 let timer;
 let timeRemaining;
+let totalTime;
+let progressBar;
 
 window.addEventListener("load", () => {
     const remaining = document.getElementById("remaining");
     const startButton = document.getElementById("start");
 
-    startButton.addEventListener("click", timerHandler);
+    progressBar = new ProgressBar.Circle(".progress", {
+        color: "#6eddff",
+    });
 
-    let minutes = 1;
-    timeRemaining = minutes * 60;
+    changeStartTime();
+
+    startButton.addEventListener("click", timerHandler);
 
     remaining.innerText = formatTime(timeRemaining);
 });
 
 const timerHandler = () => {
     const startButton = document.getElementById("start");
+    const progress = document.getElementById("progress");
 
-    startButton.classList.toggle("active");
+    if (startButton.innerText === "RESTART") restartTimer();
+    else {
+        startButton.classList.toggle("active");
 
-    if (startButton.classList.contains("active")) {
-        startButton.innerText = "STOP";
-        timer = setInterval(() => {
-            if (timeRemaining == 0) {
-                clearInterval(timeRemaining);
-                timerHandler();
-            } else {
-                timeRemaining--;
-                remaining.innerText = formatTime(timeRemaining);
-            }
-        }, 1000);
-    } else {
-        startButton.innerText = "START";
-        clearInterval(timer);
+        if (startButton.classList.contains("active")) {
+            startButton.innerText = "STOP";
+            percentage = 1 - timeRemaining / totalTime;
+            progressBar.animate(percentage, {
+                duration: 1000,
+            });
+
+            timer = setInterval(() => {
+                if (timeRemaining == 0) {
+                    clearInterval(timeRemaining);
+                    finishedTimer();
+                } else {
+                    timeRemaining--;
+                    remaining.innerText = formatTime(timeRemaining);
+                }
+
+                percentage = 1 - timeRemaining / totalTime;
+                progressBar.animate(percentage, {
+                    duration: 1000,
+                });
+            }, 1000);
+        } else {
+            startButton.innerText = "START";
+            clearInterval(timer);
+        }
     }
+};
+
+const restartTimer = () => {
+    const startButton = document.getElementById("start");
+    progressBar.animate(0, {
+        duration: 500,
+    });
+    startButton.innerText = "START";
+    changeStartTime();
+};
+
+const finishedTimer = () => {
+    timerHandler();
+    const startButton = document.getElementById("start");
+    startButton.innerText = "RESTART";
 };
 
 const formatTime = (time) => {
@@ -75,5 +109,6 @@ const changeStartTime = () => {
     hours.value = hours.value >= 24 ? 23 : hours.value;
 
     timeRemaining = seconds + minutes * 60 + hours * 60 * 60;
+    totalTime = timeRemaining;
     remaining.innerText = formatTime(timeRemaining);
 };
