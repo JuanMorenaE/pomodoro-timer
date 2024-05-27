@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./styles.css" />
+        <script src="./app.js"></script>
+        <title>Pomodoro Timer Project</title>
+    </head>
+    <body>
+        <header>
+            <h1>Pomodoro Timer</h1>
+        </header>
+
+        <div class="container">
+            <div id="clock">
+                <span id="remaining"></span>
+                <div class="progress">
+                    <progress id="bar" value="100" min="0" max="100" style="visibility: hidden; height: 0; width: 0">0%</progress>
+                </div>
+                <button id="start">START</button>
+            </div>
+        </div>
+
+        <main class="controller-container">
+            <label for=""
+                >Hours
+                <div class="controller">
+                    <button id="sub-hours">-</button>
+                    <input type="number" id="hours" min="0" max="23" value="0" />
+                    <button id="add-hours">+</button>
+                </div>
+            </label>
+
+            <label for=""
+                >Minutes
+                <div class="controller">
+                    <button id="sub-minutes">-</button>
+                    <input type="number" id="minutes" min="0" max="59" value="1" />
+                    <button id="add-minutes">+</button>
+                </div>
+            </label>
+
+            <label for=""
+                >Seconds
+                <div class="controller">
+                    <button id="sub-seconds">-</button>
+                    <input type="number" id="seconds" min="0" max="59" value="0" />
+                    <button id="add-seconds">+</button>
+                </div>
+            </label>
+        </main>
+    </body>
+</html>
