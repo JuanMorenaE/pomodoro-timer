@@ -20,7 +20,6 @@ const timerHandler = () => {
 
     if (startButton.classList.contains("active")) {
         startButton.innerText = "STOP";
-        startButton.style.color = "#ec7676";
         timer = setInterval(() => {
             if (timeRemaining == 0) {
                 clearInterval(timeRemaining);
@@ -32,7 +31,6 @@ const timerHandler = () => {
         }, 1000);
     } else {
         startButton.innerText = "START";
-        startButton.style.color = "#777";
         clearInterval(timer);
     }
 };
