@@ -92,7 +92,7 @@ header {
     font-weight: 600;
     color: #777;
     cursor: pointer;
-    box-shadow: 0 0 10px 0 #00000011;
+    box-shadow: 0 0 10px 0 #00000015;
     border-radius: 2em;
     position: absolute;
     z-index: 20;
@@ -142,7 +142,7 @@ header {
 
 .controller input {
     padding: 1em;
-    width: 100px;
+    width: 50px;
     background-color: transparent;
     border: none;
     text-align: center;

@@ -26,27 +26,51 @@
             <label for=""
                 >Hours
                 <div class="controller">
-                    <button id="sub-hours">-</button>
-                    <input type="number" id="hours" min="0" max="23" value="0" />
-                    <button id="add-hours">+</button>
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown(); changeStartTime()">-</button>
+                    <input
+                        type="number"
+                        onkeyup="changeStartTime()"
+                        oninput="validity.valid||(value='');"
+                        id="hours"
+                        min="0"
+                        max="23"
+                        value="0"
+                    />
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp(); changeStartTime()">+</button>
                 </div>
             </label>
 
             <label for=""
                 >Minutes
                 <div class="controller">
-                    <button id="sub-minutes">-</button>
-                    <input type="number" id="minutes" min="0" max="59" value="1" />
-                    <button id="add-minutes">+</button>
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown(); changeStartTime()">-</button>
+                    <input
+                        type="number"
+                        onkeyup="changeStartTime()"
+                        oninput="validity.valid||(value='');"
+                        id="minutes"
+                        min="0"
+                        max="59"
+                        value="1"
+                    />
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp(); changeStartTime()">+</button>
                 </div>
             </label>
 
             <label for=""
                 >Seconds
                 <div class="controller">
-                    <button id="sub-seconds">-</button>
-                    <input type="number" id="seconds" min="0" max="59" value="0" />
-                    <button id="add-seconds">+</button>
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown(); changeStartTime()">-</button>
+                    <input
+                        type="number"
+                        onkeyup="changeStartTime()"
+                        oninput="validity.valid||(value='');"
+                        id="seconds"
+                        min="0"
+                        max="59"
+                        value="0"
+                    />
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp(); changeStartTime()">+</button>
                 </div>
             </label>
         </main>
