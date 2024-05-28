@@ -45,7 +45,6 @@ const timerHandler = () => {
         clearInterval(timerInterval);
 
         percentage = (100 - (timeRemaining * 100) / totalTime) / 100;
-        console.log(percentage);
         progressBar.animate(percentage);
     }
 };
@@ -108,8 +107,6 @@ const changeStartTime = () => {
     totalTime = timeRemaining;
 
     remaining.innerText = formatTime(timeRemaining);
-
-    console.log(totalTime, timeRemaining);
 
     percentage = (100 - (timeRemaining * 100) / totalTime) / 100;
     progressBar.animate(percentage);
